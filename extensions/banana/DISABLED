@@ -1,0 +1,11 @@
+EXTENSÃO BANANA DESATIVADA NESTA INSTALAÇÃO
+
+Motivo: setup_mcp.py escreve diretamente em ~/.claude/settings.json do Cláudio main (VPS),
+injetando MCP externo (@ycse/nanobanana-mcp via npm) com GOOGLE_AI_API_KEY.
+
+Risco: execução acidental pelo claude-seo SKILL.md (seo-image-gen instrui ./extensions/banana/install.sh).
+
+Para reativar: aprovação explícita do Daniel + execução manual via Guardião.
+Contato: Daniel Signorelli.
+
+Instalado em: 2026-05-26 por Cláudio main (auditoria Etapa 2 marketing skills).

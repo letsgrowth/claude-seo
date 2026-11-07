@@ -5,6 +5,16 @@ set -euo pipefail
 # Wraps everything in main() to prevent partial execution on network failure
 
 main() {
+    # GATE: extensão desativada nesta instalação (VPS Let's Growth).
+    # Motivo: setup_mcp.py escreve em ~/.claude/settings.json do Cláudio main.
+    # Reativar: aprovação explícita do Daniel (ver extensions/banana/DISABLED).
+    SCRIPT_DIR_CHECK="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    if [ -f "${SCRIPT_DIR_CHECK}/DISABLED" ]; then
+        echo "BLOQUEADO: extensão banana desativada nesta instalação."
+        echo "Ver: ${SCRIPT_DIR_CHECK}/DISABLED"
+        exit 1
+    fi
+
     SKILL_DIR="${HOME}/.claude/skills/seo-image-gen"
     AGENT_DIR="${HOME}/.claude/agents"
     SEO_SKILL_DIR="${HOME}/.claude/skills/seo"
